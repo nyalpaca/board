@@ -1,0 +1,9 @@
+<div layout:decorator="layout">
+	<div layout:fragment="contents">
+	<form method="post" action="/" th:object="${messageForm}">
+  名前：<td th:text="${message.name}"></td>
+  内容：<input type="text" name="message" th:text="${message.message}">
+  <input type="submit" value="送信">
+</form>
+	</div>
+</div>

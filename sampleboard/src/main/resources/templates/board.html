@@ -1,0 +1,20 @@
+<div layout:decorator="layout">
+	<div layout:fragment="contents">
+		<table>
+		<form method="post" action="/" th:object="${messageForm}">
+  <input type="text" name="name">
+  <input type="text" name="message">
+  <input type="submit" value="送信">
+</form>
+		<tr th:each="message : ${messages}">
+		  <td th:text="${message.id}"></td>
+		  <td th:text="${message.createTime}"></td>
+		  <td th:text="${message.name}"></td>
+		  <td th:text="${message.message}"></td>
+		  <a href="@{/edit} + ${message.id}" path="${message.id}" th:method="GET">編集</a>：
+		  <form th:action="@{/} + ${message.id}" th:method="delete"><input type="submit" value="削除"></form>
+		</tr>
+		</table>
+
+	</div>
+</div>
